@@ -158,6 +158,37 @@ vector <Adresat> DodanieAdresataDoWektora(vector <Adresat> &adresaci, int osoby,
     return adresaci;
 }
 
+int WyznaczanieNumeruIDOstatniegoAdresata()
+{
+    string linia;
+    string ostatniaLinia;
+    int nr_linii = 1;
+    int ile_osob = 0;
+    int ID;
+
+    fstream plik;
+    plik.open("Adresaci.txt", ios::in);
+
+    if (plik.good() == true)
+    {
+        while (getline(plik, linia))
+        {
+            if (nr_linii >= 1)
+            {
+                ile_osob++;
+                ostatniaLinia = linia;
+                nr_linii = 1;
+            }
+            else
+                nr_linii++;
+        }
+        plik.close();
+    }
+    ID = ostatniaLinia[0] - 48;
+
+    return ID;
+}
+
 int WczytajOsobyZPliku()
 {
     string linia;
@@ -184,9 +215,8 @@ int WczytajOsobyZPliku()
     return ile_osob;
 }
 
-int DodajAdresata(vector <Adresat> &adresaci, int iloscOsob, int idZalogowanegoUzytkownika)
+int DodajAdresata(vector <Adresat> &adresaci, int iloscOsob, int idZalogowanegoUzytkownika, int ID)
 {
-    int ID;
     string imie, nazwisko, telefon, email, adres;
 
     Adresat nowyAdresat;
@@ -204,12 +234,7 @@ int DodajAdresata(vector <Adresat> &adresaci, int iloscOsob, int idZalogowanegoU
     cin.sync();
     getline(cin, adres);
 
-    if (iloscOsob == 0)
-        ID = iloscOsob + 1;
-    else
-        ID = adresaci[iloscOsob - 1].id + 1;
-
-    nowyAdresat.id = ID;
+    nowyAdresat.id = ID + 1;
     nowyAdresat.imie = imie;
     nowyAdresat.nazwisko = nazwisko;
     nowyAdresat.telefon = telefon;
@@ -816,6 +841,8 @@ int main()
         {
             iloscOsobWKsiazceAdresowej = WczytajOsobyZPliku();
 
+            ID = WyznaczanieNumeruIDOstatniegoAdresata();
+
             adresaci.clear();
 
             adresaci = DodanieAdresataDoWektora(adresaci, iloscOsobWKsiazceAdresowej, idZalogowanegoUzytkownika);
@@ -834,7 +861,7 @@ int main()
             cin >> wybor;
 
             if (wybor == '1')
-                iloscOsobWKsiazceAdresowej = DodajAdresata(adresaci, iloscOsobWKsiazceAdresowej, idZalogowanegoUzytkownika);
+                iloscOsobWKsiazceAdresowej = DodajAdresata(adresaci, iloscOsobWKsiazceAdresowej, idZalogowanegoUzytkownika, ID);
             else if (wybor == '2')
                 WyszukajPoImieniu(adresaci, iloscOsobWKsiazceAdresowej);
             else if (wybor == '3')
