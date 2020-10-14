@@ -841,7 +841,10 @@ int main()
         {
             iloscOsobWKsiazceAdresowej = WczytajOsobyZPliku();
 
-            ID = WyznaczanieNumeruIDOstatniegoAdresata();
+            if (iloscOsobWKsiazceAdresowej == 0)
+                ID = 0;
+            else
+                ID = WyznaczanieNumeruIDOstatniegoAdresata();
 
             adresaci.clear();
 
