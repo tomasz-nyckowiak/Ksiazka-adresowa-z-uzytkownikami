@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1605102363 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\ksiazkaadresowa.cpp
+	"KsiazkaAdresowa.h"
+
+1604490224 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\uzytkownik.cpp
+	"Uzytkownik.h"
+
+1605180029 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\main.cpp
+	<iostream>
+	"KsiazkaAdresowa.h"
+
+1605102363 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\ksiazkaadresowa.h
+	<iostream>
+	"UzytkownikMenedzer.h"
+	"AdresatMenedzer.h"
+
+1604579503 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\uzytkownik.h
+	<iostream>
+
+1605178890 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\metodypomocnicze.cpp
+	"MetodyPomocnicze.h"
+
+1605178861 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\metodypomocnicze.h
+	<iostream>
+	<sstream>
+	<algorithm>
+	<fstream>
+
+1604927967 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\uzytkownikmenedzer.h
+	<iostream>
+	<vector>
+	<windows.h>
+	<fstream>
+	<sstream>
+	"Uzytkownik.h"
+	"PlikZUzytkownikami.h"
+
+1605179147 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\plikzuzytkownikami.h
+	<iostream>
+	<vector>
+	<fstream>
+	<cstdlib>
+	"Uzytkownik.h"
+	"MetodyPomocnicze.h"
+
+1605179159 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\plikzuzytkownikami.cpp
+	"PlikZUzytkownikami.h"
+
+1604927967 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\uzytkownikmenedzer.cpp
+	"UzytkownikMenedzer.h"
+
+1605014671 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\adresat.cpp
+	"Adresat.h"
+
+1605014671 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\adresat.h
+	<iostream>
+
+1605102363 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\adresatmenedzer.h
+	<iostream>
+	<vector>
+	<windows.h>
+	<fstream>
+	<sstream>
+	"Adresat.h"
+	"PlikZAdresatami.h"
+	"MetodyPomocnicze.h"
+
+1605102363 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\adresatmenedzer.cpp
+	"AdresatMenedzer.h"
+
+1605179179 source:d:\private!\praca\przyszlyprogramista\02-ks-obiekt\plikzadresatami.cpp
+	"PlikZAdresatami.h"
+
+1605179188 d:\private!\praca\przyszlyprogramista\02-ks-obiekt\plikzadresatami.h
+	<iostream>
+	<vector>
+	<fstream>
+	<cstdlib>
+	"Adresat.h"
+	"MetodyPomocnicze.h"
+
