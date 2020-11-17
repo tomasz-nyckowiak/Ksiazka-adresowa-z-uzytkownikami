@@ -11,13 +11,23 @@
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
-- UzytkownikMenedzer : uzytkownikMenedzer 
-- AdresatMenedzer : adresatMenedzer
+- uzytkownikMenedzer : UzytkownikMenedzer 
+- *adresatMenedzer : AdresatMenedzer
+- NAZWA_PLIKU_Z_ADRESATAMI : const string
 --
-KsiazkaAdresowa()
++ KsiazkaAdresowa()
++ ~KsiazkaAdresowa()
++ rejestracjaUzytkownika() : void
++ wypiszWszystkichUzytkownikow() : void
++ logowanieUzytkownika() : void
++ zmianaHaslaZalogowanegoUzytkownika() : void
++ wylogowanieUzytkownika() : void
 
-
-</panel_attributes>
++ dodajAdresata() : void
++ wyswietlWszystkichAdresatow() : void
++ czyUzytkownikJestZalogowany() : void
++ wybierzOpcjeZMenuGlownego() : char
++ wybierzOpcjeZMenuUzytkownika() : char</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -25,14 +35,22 @@ KsiazkaAdresowa()
     <coordinates>
       <x>1056</x>
       <y>252</y>
-      <w>156</w>
+      <w>252</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>Uzytkownik
 --
 - id : Integer
 - login : String
-- haslo : String</panel_attributes>
+- haslo : String
+--
++ ustawId(int noweId) : void
++ ustawLogin(string nowyLogin) : void
++ ustawHaslo(string noweHaslo) : void
+
++ pobierzId() : integer
++ pobierzLogin() : string
++ pobierzHaslo() : string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -45,23 +63,25 @@ KsiazkaAdresowa()
     </coordinates>
     <panel_attributes>UzytkownikMenedzer
 --
-- idZalogowanegoUzytkownika : Integer
+- idZalogowanegoUzytkownika : integer
 - uzytkownicy : vector &lt;Uzytkownik&gt;
+- plikZUzytkownikami : PlikZUzytkownikami
 --
++ UzytkownikMenedzer()
 + rejestracjaUzytkownika () : void
-+ logowanieUzytkownika () : Integer
 + wypiszWszystkichUzytkownikow (): void
-+ wczytajUzytkownikowZPliku() : void
-+ wybierzOpcjeZMenuGlownego() : Char
-+ wybierzOpcjeZMenuUzytkownika() : Char
-+ ustawIdZalogowanegoUzytkownika(int aktualneId) : void
-+ pobierzIdZalogowanegoUzytkownika() : Integer
-+ zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika) : void
++ logowanieUzytkownika () : integer
++ zmianaHaslaZalogowanegoUzytkownika() : void
++ wylogowanieUzytkownika() : void
++ czyUzytkownikJestZalogowany() : bool
++ pobierzIdZalogowanegoUzytkownika() : integer
++ wybierzOpcjeZMenuGlownego() : char
++ wybierzOpcjeZMenuUzytkownika() : char
+
 - podajDaneNowegoUzytkownika() : Uzytkownik
-- pobierzIdNowegoUzytkownika() : Integer
-- czyIstniejeLogin(string login) : Bool
-- PlikZUzytkownikami : plikZUzytkownikami
-- zmianaHaslaZalogowanegoUzytkownika(uzytkownicy, idZalogowanegoUzytkownika) : void</panel_attributes>
+- pobierzIdNowegoUzytkownika() : integer
+- czyIstniejeLogin(string login) : bool
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -74,13 +94,14 @@ KsiazkaAdresowa()
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
-- nazwaPlikuZUzytkownikami : String
+- NAZWA_PLIKU_Z_UZYTKOWNIKAMI : const string
 --
 + PlikZUzytkownikami()
 + dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) : void
 + wczytajUzytkownikowZPliku() : vector &lt;Uzytkownik&gt;
 + zapiszWszystkichUzytkownikowDoPliku(vector &lt;Uzytkownik&gt; &amp;uzytkownicy) : void
-- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) : String
+
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) : string
 - pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami) : Uzytkownik
 </panel_attributes>
     <additional_attributes/>
@@ -88,21 +109,21 @@ KsiazkaAdresowa()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>972</x>
-      <y>384</y>
-      <w>576</w>
-      <h>240</h>
+      <x>936</x>
+      <y>396</y>
+      <w>588</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 --
 --
-+ konwerjsaIntNaString(int liczba) : String
-+ wczytajZnak() : Char
-+ wczytajLinie() : String
-+ zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) : String
-+ pobierzLiczbe(string tekst, int pozycjaZnaku) : String
-+ konwersjaStringNaInt(string liczba) : Integer
-+ czyPlikJestPusty() : Bool
++ konwerjsaIntNaString(int liczba) : static string
++ wczytajZnak() : static char
++ wczytajLinie() : static string
++ zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) : static string
++ pobierzLiczbe(string tekst, int pozycjaZnaku) : static string
++ konwersjaStringNaInt(string liczba) : static integer
++ czyPlikJestPusty(fstream &amp;plikTekstowy) : static bool
 
 </panel_attributes>
     <additional_attributes/>
@@ -112,22 +133,21 @@ KsiazkaAdresowa()
     <coordinates>
       <x>60</x>
       <y>384</y>
-      <w>900</w>
-      <h>240</h>
+      <w>564</w>
+      <h>228</h>
     </coordinates>
     <panel_attributes>AdresatMenedzer
 --
-- idOstatniegoAdresata : Integer
+- ID_ZALOGOWANEGO_UZYTKOWNIKA : const integer
 - adresaci : vector &lt;Adresat&gt;
+- plikZAdresatami : PlikZAdresatami
 --
++ AdresatMenedzer()
++ dodajAdresata() : void
 + wyswietlWszystkichAdresatow() : void
-+ wyswietlDaneAdresata(Adresat adresat) : void
-+ wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : void
-+ ustawIdOstatniegoAdresata(int idZalogowanegoUzytkownika) : void
-+ pobierzIdOstatniegoAdresata() : Integer
-+ dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata) : Integer
-- podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata) : Adresat
-- PlikZAdresatami : plikZAdresatami
+
+- podajDaneNowegoAdresata() : Adresat
+- wyswietlDaneAdresata(Adresat adresat) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -136,30 +156,32 @@ KsiazkaAdresowa()
     <coordinates>
       <x>60</x>
       <y>636</y>
-      <w>1080</w>
-      <h>288</h>
+      <w>1044</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
-- nazwaPlikuZAdresatami: String
+- NAZWA_PLIKU_Z_ADRESATAMI : const string
+- idOstatniegoAdresata : integer
 --
 + PlikZAdresatami()
-+ dopiszAdresataDoPliku(Adresat adresat) : void
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) : Integer
-+ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) : Integer
-+ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) : Integer
-+ zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) : String
-+ wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : vector &lt;Adresat&gt;
-- pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami) : Adresat</panel_attributes>
++ dopiszAdresataDoPliku(Adresat adresat) : bool
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) : vector &lt;Adresat&gt;
++ pobierzIdOstatniegoAdresata() : integer
+
+- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) : string
+- pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami) : Adresat
+- pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) : integer
+- pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) : integer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1296</x>
-      <y>636</y>
+      <x>660</x>
+      <y>384</y>
       <w>228</w>
-      <h>180</h>
+      <h>228</h>
     </coordinates>
     <panel_attributes>Adresat
 --
@@ -169,7 +191,24 @@ KsiazkaAdresowa()
 - nazwisko : String
 - numerTelefonu : String
 - email : String
-- adres : String</panel_attributes>
+- adres : String
+--
++ Adresat()
++ ustawId(int noweId) : void
++ ustawIdUzytkownika(int pobraneId) : void
++ ustawImie(string noweImie) : void
++ ustawNazwisko(string noweNazwisko) : void
++ ustawNumerTelefonu(string nowyNumerTelefonu) : void
++ ustawEmail(string nowyEmail) : void
++ ustawAdres(string nowyAdres) : void
+
++ pobierzId() : integer
++ pobierzIdUzytkownika() : integer
++ pobierzImie() : string
++ pobierzNazwisko() : string
++ pobierzNumerTelefonu() : string
++ pobierzEmail() : string
++ pobierzAdres() : string</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
