@@ -65,11 +65,28 @@ int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
     return liczbaInt;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
+/*bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
 {
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
     else
         return false;
+}*/
+
+int MetodyPomocnicze::wczytajLiczbeCalkowita()
+{
+    string wejscie = "";
+    int liczba = 0;
+
+    while (true)
+    {
+        getline(cin, wejscie);
+
+        stringstream myStream(wejscie);
+        if (myStream >> liczba)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return liczba;
 }

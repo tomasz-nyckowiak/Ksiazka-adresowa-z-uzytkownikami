@@ -28,6 +28,15 @@ public:
     };
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    int usunAdresata();
+    int podajIdWybranegoAdresata();
+    int pobierzZPlikuIdOstatniegoAdresata();
+    void edytujAdresata();
+    char wybierzOpcjeZMenuEdycja();
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 };
 
 #endif

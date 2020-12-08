@@ -35,6 +35,11 @@ public:
     bool czyUzytkownikJestZalogowany();
     char wybierzOpcjeZMenuGlownego();
     char wybierzOpcjeZMenuUzytkownika();
+    int usunAdresata();
+    int idOstatniegoAdresataPoUsunieciuWybranegoAdresata();
+    void edytujAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 
 #endif
