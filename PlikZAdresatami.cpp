@@ -92,11 +92,6 @@ int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(strin
     return idAdresata;
 }
 
-int PlikZAdresatami::pobierzIdOstatniegoAdresata()
-{
-    return idOstatniegoAdresata;
-}
-
 bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";

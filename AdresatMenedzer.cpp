@@ -22,7 +22,7 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
     Adresat adresat;
     string imie, nazwisko, numerTelefonu, email, adres;
 
-    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);
+    adresat.ustawId(plikZAdresatami.pobierzZPlikuIdOstatniegoAdresata() + 1);
     adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
@@ -111,7 +111,7 @@ int AdresatMenedzer::usunAdresata()
             else
             {
                 cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
-                system("p       ause");
+                system("pause");
                 return 0;
             }
         }

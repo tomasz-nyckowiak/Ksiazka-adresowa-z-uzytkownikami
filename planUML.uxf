@@ -178,7 +178,6 @@
 + PlikZAdresatami()
 + dopiszAdresataDoPliku(Adresat adresat) : bool
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) : vector &lt;Adresat&gt;
-+ pobierzIdOstatniegoAdresata() : integer
 + usunWybranegoAdresataWPliku(int idUsuwanegoAdresata) : void
 + usunPlik(string nazwaPlikuZRozszerzeniem) : void
 + zmienNazwePliku(string staraNazwa, string nowaNazwa) : void
